@@ -45,6 +45,21 @@ Analizar datos transaccionales de ventas para identificar tendencias y patrones 
 ├── requirements.txt            # Dependencias necesarias
 └── .gitignore                  # Archivos excluidos
 ```
+
+## ▶️ Cómo Ejecutar el Proyecto
+
+1. **Clonar el repositorio**  
+   git clone https://github.com/DiegoTascon94/online-retail-analysis.git
+
+2. **Preparar los datos**
+   Dado que el dataset es externo, descarga el archivo `online_retail.csv` y colócalo dentro de la carpeta `/data`.
+
+3. **Instalar dependencias**  
+   pip install -r requirements.txt
+
+4. *Abrir el análisis*  
+   Navega a la carpeta `/notebook` y ejecuta el archivo `online_retail.ipynb`.
+
 ## 📝 Conclusiones
 Este proyecto demuestra que los datos transaccionales crudos pueden transformarse en una hoja de ruta estratégica. Al separar el ruido de las devoluciones y centrarse en el comportamiento real del cliente, el negocio puede actuar de manera proactiva, optimizando tanto el inventario como la relación con el consumidor final.
 
