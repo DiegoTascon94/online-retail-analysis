@@ -1,0 +1,13 @@
+# Análisis de Datos y Manipulación
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualización de Datos
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Cálculos Estadísticos (opcional, usado en Churn/Olist)
+scipy>=1.10.0
+
+# Entorno de Trabajo
+jupyter>=1.0.0
