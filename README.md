@@ -1,68 +1,68 @@
-# 🛒 Análisis de Ventas y Segmentación de Clientes: Online Retail
+# 🛒 Análisis de Ventas y Segmentación de Clientes — Online Retail I (UCI)
 
 ## 🎯 Contexto del Negocio
-Una empresa de comercio electrónico busca optimizar su desempeño comercial mediante el entendimiento profundo de su base de clientes. En un entorno transaccional masivo, es vital diferenciar a los clientes de alto valor de aquellos esporádicos para personalizar las estrategias de marketing y evitar la fuga de ingresos.
+Una empresa de comercio electrónico del Reino Unido especializada en productos de regalo busca optimizar su desempeño comercial mediante el entendimiento profundo de su base de clientes. En un entorno transaccional masivo, es vital diferenciar a los clientes de alto valor de aquellos esporádicos para personalizar las estrategias de marketing y evitar la fuga de ingresos.
 
 ## 🚀 Objetivo del Proyecto
-Analizar datos transaccionales de ventas para identificar tendencias y patrones de comportamiento, aplicando una **segmentación estratégica** que permita generar insights accionables para la optimización del negocio.
+Analizar más de 500,000 transacciones reales para identificar tendencias de ventas, patrones de comportamiento de compra y concentración de revenue, aplicando segmentación RFM para generar insights accionables orientados a retención, reactivación y optimización comercial.
 
 ## 📊 Alcance del Análisis
-* **Limpieza de Datos:** Tratamiento de valores nulos en `CustomerID` y gestión de registros negativos correspondientes a cancelaciones o devoluciones.
-* **Granularidad:** Análisis a nivel de factura (`InvoiceNo`) y producto (`StockCode`).
-* **Temporalidad:** Evaluación de tendencias históricas para detectar picos de demanda estacional.
+- **Datos:** 541,909 registros transaccionales reales (dic 2010 — dic 2011)
+- **Limpieza:** Tratamiento de 135,080 nulos en `CustomerID`, eliminación de duplicados, separación de cancelaciones y filtrado de valores no plausibles en `Quantity` y `UnitPrice`
+- **Granularidad:** Análisis a nivel de factura (`InvoiceNo`) y producto (`StockCode`)
+- **Temporalidad:** Evaluación de tendencias históricas mensuales para detectar estacionalidad
 
-## 💡 Principales Insights (EDA)
-* **Comportamiento de Compra:** Identificación de los productos con mayor rotación y su impacto en el ticket promedio.
-* **Anomalías Transaccionales:** Detección de patrones de devoluciones que afectan la rentabilidad neta por cliente.
-* **Concentración de Mercado:** Análisis de ventas por regiones, identificando los mercados con mayor lealtad.
+## 💡 Principales Insights
+- **Concentración de revenue:** El 26% de los clientes (1,129 de 4,338) genera el 80% del revenue total — validación del Principio de Pareto sobre la base de clientes
+- **Estacionalidad marcada:** Noviembre y octubre concentran los picos más altos de revenue (£1.5M y £1.15M respectivamente), asociados a temporada alta de regalos
+- **Dependencia geográfica:** United Kingdom concentra la mayoría del revenue (£9M), con Netherlands, EIRE y Germany como mercados internacionales líderes
+- **Productos estrella:** Los productos de mayor revenue no coinciden con los de mayor volumen — DOTCOM POSTAGE lidera en ingresos mientras PAPER CRAFT, LITTLE BIRDIE lidera en unidades vendidas
 
 ## 🛠️ Enfoque Analítico
-* **Análisis Descriptivo:** Para comprender las tendencias generales de venta y volumen.
-* **Segmentación RFM (Propuesto):** Evaluación de clientes basada en la Recencia de su última compra, la Frecuencia de sus pedidos y el valor Monetario total aportado.
+- **Preprocesamiento:** Separación de datasets por propósito (negocio, clientes, productos), tratamiento diferenciado de nulos y cancelaciones
+- **Análisis Descriptivo:** Tendencias generales de venta, volumen y revenue mensual
+- **Análisis 80/20:** Concentración de revenue por cliente y por producto
+- **Segmentación RFM:** Segmentación ejecutada sobre clientes identificados evaluando Recency, Frequency y Monetary con scoring por cuantiles
 
 ## 📈 Métricas de Negocio
-* **Ingreso Total (Gross Revenue):** Calculado tras la depuración de transacciones fallidas.
-* **Volumen de Ventas:** Identificación de los SKUs estrella de la operación.
-* **Retención Inicial:** Análisis de la recurrencia de los clientes identificados.
+- **Revenue Total:** £10,642,110 GBP sobre ventas válidas
+- **Transacciones únicas:** 19,960 facturas
+- **Clientes identificados:** 4,338 clientes únicos
+- **Average Order Value (AOV):** £533 GBP
+- **Average Revenue per Customer:** £2,453 GBP
+- **Tasa de cancelación:** 1.72% del total de registros
 
 ## 🧠 Impacto en Decisiones de Negocio
-* **Fidelización:** Priorizar estrategias comerciales en clientes recurrentes identificados como "VIP" o "Campeones".
-* **Gestión de Stock:** Priorizar productos con mejor desempeño logístico y comercial.
-* **Marketing Dirigido:** Utilizar los patrones identificados para reducir el costo de adquisición de clientes.
+- **Retención:** El segmento de alto valor (26% de clientes) concentra el 80% del revenue — una caída en este grupo tiene impacto directo y significativo en los ingresos totales
+- **Gestión de Stock:** Estacionalidad identificada permite anticipar demanda de Q4 desde agosto, evitando quiebres de stock en temporada alta
+- **Marketing Dirigido:** Segmentación RFM permite diferenciar estrategias por segmento — retención para clientes de alto valor, reactivación para clientes en riesgo y conversión para clientes potenciales
 
 ## 💻 Tecnologías y Herramientas
-* **Lenguaje:** Python
-* **Librerías:** Pandas, NumPy, Matplotlib, Seaborn.
-* **Entorno:** Jupyter Notebook.
+- **Lenguaje:** Python
+- **Librerías:** Pandas, NumPy, Matplotlib, Seaborn
+- **Entorno:** Jupyter Notebook
 
 ## 📂 Estructura del Repositorio
-```text
+```
 ├── data/
-│   └── online_retail.csv       # Dataset (Nota: No incluido por tamaño/privacidad)
+│   └── online_retail.csv          # Dataset (no incluido por tamaño)
 ├── notebook/
-│   └── online_retail.ipynb     # Notebook principal del análisis
-├── README.md                   # Documentación del proyecto
-├── requirements.txt            # Dependencias necesarias
-└── .gitignore                  # Archivos excluidos
+│   └── online_retail.ipynb        # Notebook principal del análisis
+├── README.md                      # Documentación del proyecto
+├── requirements.txt               # Dependencias necesarias
+└── .gitignore                     # Archivos excluidos
 ```
 
 ## ▶️ Cómo Ejecutar el Proyecto
-
-1. **Clonar el repositorio**  
-   git clone https://github.com/DiegoTascon94/online-retail-analysis.git
-
-2. **Preparar los datos**
-   Dado que el dataset es externo, descarga el archivo `online_retail.csv` y colócalo dentro de la carpeta `/data`.
-
-3. **Instalar dependencias**  
-   pip install -r requirements.txt
-
-4. *Abrir el análisis*  
-   Navega a la carpeta `/notebook` y ejecuta el archivo `online_retail.ipynb`.
+1. Clonar el repositorio: `git clone https://github.com/DiegoTascon94/online-retail-analysis.git`
+2. Descargar el dataset desde [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/352/online+retail) y colocarlo en `/data`
+3. Instalar dependencias: `pip install -r requirements.txt`
+4. Abrir el análisis: navegar a `/notebook` y ejecutar `online_retail.ipynb`
 
 ## 📝 Conclusiones
-Este proyecto demuestra que los datos transaccionales crudos pueden transformarse en una hoja de ruta estratégica. Al separar el ruido de las devoluciones y centrarse en el comportamiento real del cliente, el negocio puede actuar de manera proactiva, optimizando tanto el inventario como la relación con el consumidor final.
+Este proyecto demuestra que los datos transaccionales crudos pueden transformarse en una hoja de ruta estratégica. La combinación de limpieza rigurosa, análisis exploratorio y segmentación RFM permite identificar con precisión los segmentos críticos del negocio — desde los clientes de alto valor que sostienen el revenue hasta los patrones estacionales que definen la planificación comercial.
 
 ## 🔮 Próximos Pasos / Mejoras Futuras
-* **Market Basket Analysis:** Implementar algoritmos de asociación (como Apriori o FP-Growth) para descubrir qué productos se compran juntos frecuentemente y optimizar el *cross-selling*.
-* **Dashboard Interactivo:** Conectar estos hallazgos a una herramienta de BI (Power BI o Tableau) para un monitoreo de KPIs en tiempo real.
+- **Market Basket Analysis:** Implementar algoritmos de asociación (Apriori o FP-Growth) para descubrir productos que se compran juntos y optimizar el cross-selling
+- **Modelo predictivo de churn:** Clasificar clientes en riesgo antes de que migren a segmento perdido, basándose en su perfil RFM
+- **Expansión del análisis:** Replicar metodología sobre el dataset Online Retail II (2009-2011) con stack completo Python + SQL Server + Power BI
